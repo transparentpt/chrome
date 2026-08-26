@@ -3,6 +3,7 @@
   "name": "TransparentCars — Fair-price & running-cost check",
   "version": "0.1.0",
   "description": "On Portuguese car listings, see a fair-price range, yearly road tax (IUC) and a buyer's red-flag checklist. By TransparentCars.",
+  "homepage_url": "https://transparent.pt",
   "icons": {
     "16": "assets/icon16.png",
     "48": "assets/icon48.png",
