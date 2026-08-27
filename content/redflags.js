@@ -9,24 +9,24 @@
 
   window.__TC.REDFLAGS = [
     {
-      title: 'Quilómetros adulterados',
-      body: 'Volante, pedais ou banco muito gastos para os km indicados? Pede o histórico de inspeções (IPO) — a quilometragem fica registada em cada inspeção.'
+      title: 'Clocked mileage',
+      body: 'Steering wheel, pedals or seat worn beyond the stated mileage? Ask for the inspection (IPO) history — the odometer is recorded at every inspection.'
     },
     {
-      title: 'Danos escondidos',
-      body: 'Tinta com tons diferentes, folgas irregulares entre painéis ou parafusos marcados sugerem reparação de acidente. Vê o carro à luz do dia.'
+      title: 'Hidden damage',
+      body: 'Mismatched paint shades, uneven panel gaps or marked bolts suggest accident repair. View the car in daylight.'
     },
     {
-      title: 'Dívidas e multas seguem o carro',
-      body: 'IUC em atraso, penhoras ou reservas de propriedade passam para ti. Confirma que está tudo pago e sem ónus ANTES de transferir a propriedade.'
+      title: 'Debts and fines follow the car',
+      body: 'Unpaid road tax (IUC), liens or a retention-of-title clause pass to you. Confirm everything is paid and free of charges BEFORE transferring ownership.'
     },
     {
-      title: 'Falso "particular"',
-      body: 'Vários carros do mesmo contacto, ou pedido de sinal antes de veres o carro? Para. Um particular genuíno deixa-te ver e testar sem pressão.'
+      title: 'Fake "private" seller',
+      body: 'Several cars from the same contact, or a deposit asked before you see the car? Stop. A genuine private seller lets you view and test without pressure.'
     },
     {
-      title: 'Taxas "surpresa" no fim',
-      body: 'Custos de "preparação", "documentação" ou "reserva" que aparecem só no fecho. Pede o preço final por escrito antes de te comprometeres.'
+      title: 'Surprise fees at the end',
+      body: 'Prep, documentation or reservation costs that appear only at closing. Ask for the final all-in price in writing before you commit.'
     }
   ];
 })();

@@ -102,12 +102,12 @@
 
     // parsed car summary
     var secCar = el('div', 'tc-sec');
-    secCar.appendChild(el('div', 'tc-car', carLine(car) || 'Anúncio de carro'));
+    secCar.appendChild(el('div', 'tc-car', carLine(car) || 'Car listing'));
     body.appendChild(secCar);
 
     // fair-price section
     var secVal = el('div', 'tc-sec');
-    secVal.appendChild(el('h4', null, 'Preço justo'));
+    secVal.appendChild(el('h4', null, 'Fair price'));
     var valBody = el('div');
     valBody.appendChild(el('div', 'tc-skel', ''));
     secVal.appendChild(valBody);
@@ -115,7 +115,7 @@
 
     // running-cost section
     var secIuc = el('div', 'tc-sec');
-    secIuc.appendChild(el('h4', null, 'Custo anual'));
+    secIuc.appendChild(el('h4', null, 'Yearly cost'));
     var iucBody = el('div');
     iucBody.appendChild(el('div', 'tc-skel', ''));
     secIuc.appendChild(iucBody);
@@ -124,14 +124,14 @@
     // seller (phase 2) — hidden until setSeller() reveals it
     var secSeller = el('div', 'tc-sec');
     secSeller.style.display = 'none';
-    secSeller.appendChild(el('h4', null, 'Este contacto'));
+    secSeller.appendChild(el('h4', null, 'This contact'));
     var sellerBody = el('div');
     secSeller.appendChild(sellerBody);
     body.appendChild(secSeller);
 
     // red flags
     var secFlags = el('div', 'tc-sec');
-    secFlags.appendChild(el('h4', null, 'Verificar antes de comprar'));
+    secFlags.appendChild(el('h4', null, 'Check before you buy'));
     var ul = el('ul', 'tc-flags');
     (TC.REDFLAGS || []).forEach(function (f) {
       var li = el('li');
@@ -175,11 +175,11 @@
         valBody.innerHTML = '';
         if (!v || v.status !== 'ok') {
           valBody.appendChild(el('div', 'tc-muted',
-            (v && v.message) || 'Sem dados suficientes para estimar o preço.'));
+            (v && v.message) || 'Not enough data to estimate the price.'));
           return;
         }
         var range = el('div', 'tc-range');
-        [['Mín', v.low], ['Mediana', v.median], ['Máx', v.high]].forEach(function (c, i) {
+        [['Min', v.low], ['Median', v.median], ['Max', v.high]].forEach(function (c, i) {
           var cell = el('div', 'c' + (i === 1 ? ' mid' : ''));
           cell.appendChild(el('b', null, fmtEur(c[1])));
           cell.appendChild(el('span', null, c[0]));
@@ -192,8 +192,8 @@
         }
         if (v.ask != null) {
           valBody.appendChild(el('div', 'tc-ask',
-            'Pedido: <b>' + fmtEur(v.ask) + '</b>' +
-            (v.rough ? ' · estimativa aproximada' : '')));
+            'Asking: <b>' + fmtEur(v.ask) + '</b>' +
+            (v.rough ? ' · rough estimate' : '')));
         }
       },
 
@@ -201,11 +201,11 @@
         iucBody.innerHTML = '';
         if (!r || r.status !== 'ok' || r.iuc == null) {
           iucBody.appendChild(el('div', 'tc-muted',
-            (r && r.message) || 'IUC indisponível para este veículo.'));
+            (r && r.message) || 'IUC unavailable for this vehicle.'));
           return;
         }
         iucBody.appendChild(el('div', 'tc-iuc',
-          '≈ ' + fmtEur(r.iuc) + '<small> /ano de imposto de circulação (IUC)</small>'));
+          '≈ ' + fmtEur(r.iuc) + '<small> /year road tax (IUC)</small>'));
       },
 
       // Phase 2: NEUTRAL FACT only. Never renders unless given a count >= 1.
@@ -214,8 +214,8 @@
         sellerBody.innerHTML = '';
         secSeller.style.display = '';
         sellerBody.appendChild(el('div', 'tc-seller',
-          'ℹ️ Este contacto aparece em <b>' + s.count +
-          '</b> anúncio' + (s.count === 1 ? '' : 's') + ' ativo' + (s.count === 1 ? '' : 's') + '.'));
+          'ℹ️ This contact appears on <b>' + s.count +
+          '</b> active listing' + (s.count === 1 ? '' : 's') + '.'));
       }
     };
   };

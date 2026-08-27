@@ -38,15 +38,15 @@
       return { verdict: null, verdictClass: 'tc-v-muted', ask: ask };
     }
     var verdict, cls;
-    if (ask < v.low) { verdict = 'Abaixo do mercado'; cls = 'tc-v-below'; }
-    else if (ask > v.high) { verdict = 'Acima do mercado'; cls = 'tc-v-above'; }
-    else { verdict = 'Preço justo'; cls = 'tc-v-fair'; }
+    if (ask < v.low) { verdict = 'Below market'; cls = 'tc-v-below'; }
+    else if (ask > v.high) { verdict = 'Above market'; cls = 'tc-v-above'; }
+    else { verdict = 'Fair price'; cls = 'tc-v-fair'; }
     return { verdict: verdict, verdictClass: cls, ask: ask };
   }
 
   function runValuation(car, panel) {
     if (!(car.make && car.model && car.year)) {
-      panel.setValuation({ status: 'skip', message: 'Faltam dados do carro para estimar o preço.' });
+      panel.setValuation({ status: 'skip', message: 'Not enough car details to estimate the price.' });
       return;
     }
     var params = { make: car.make, model: car.model, year: car.year };
@@ -57,7 +57,7 @@
 
     U.bg({ type: 'valuation', params: params }).then(function (resp) {
       if (!resp.ok || !resp.data || !resp.data.found) {
-        panel.setValuation({ status: 'unavailable', message: 'Sem comparáveis suficientes.' });
+        panel.setValuation({ status: 'unavailable', message: 'Not enough comparable listings.' });
         return;
       }
       var d = resp.data;
@@ -71,7 +71,7 @@
 
   function runIuc(car, panel) {
     if (!car.year) {
-      panel.setIuc({ status: 'skip', message: 'Faltam dados para o IUC.' });
+      panel.setIuc({ status: 'skip', message: 'Not enough data for the IUC.' });
       return;
     }
     // NOTE: never send co2 when unknown — an empty co2 param 400s the endpoint.
